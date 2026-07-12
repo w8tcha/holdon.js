@@ -1,5 +1,5 @@
 {
-  "name": "holdon.js",
+  "name": "@w8tcha/holdon.js",
   "type": "module",
   "version": "1.0.0",
   "description": "holdon is a tiny JS library to create an overlay dinamically with Javascript to prevent the access to the user interface.",
