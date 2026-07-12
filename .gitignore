@@ -42,3 +42,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 /nbproject/private/
+demos/demo2.html
+/node_modules
+src/holdOn-custom.css

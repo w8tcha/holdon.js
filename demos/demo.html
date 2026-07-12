@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>holdOn.js | Lock the UI to prevent stupid actions on asynchronous requests</title>
+    <meta name="theme-color" content="#4285f4">
+    <meta name="description"
+        content="HoldOn is a tiny JS library to create an overlay dinamically with Javascript to prevent the access to the user interface." />
+
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+
+    <meta name="theme-color" content="#111111" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#eeeeee" media="(prefers-color-scheme: dark)" />
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" type="module"></script>
+    <link rel="stylesheet" href="../dist/holdOn.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/themes/prism-okaidia.min.css"
+        integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <div class="container">
+        <header class="navbar navbar-expand-md fixed-top border-bottom bg-light"> <a href="/"
+                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"> <svg
+                    class="bi me-2" width="40" height="32" aria-hidden="true">
+                    <use xlink:href="#bootstrap"></use>
+                </svg> <span class="fs-4">holdOn.js</span> </a>
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="#section-home" class="nav-link active" aria-current="page">Home</a></li>
+                <li class="nav-item"><a href="#section-demo" class="nav-link">Test holdOn.js</a></li>
+                <li class="nav-item"><a href="#section-open" class="nav-link">Open overlay</a></li>
+                <li class="nav-item"><a href="#section-close" class="nav-link">Close overlay</a></li>
+            </ul>
+        </header>
+        <main style="padding-top:70px">
+            <section id="section-home">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="text-center">
+                            <img style="max-width: 300px;" src="../holdonjs-logo.png" class="img-fluid" alt="">
+                            <div class="mask">
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="col-md-8">
+                        <h2 class="h2-responsive">Prevent user interaction with an unremovable layout</h2>
+                        <hr>
+                        <p>holdOn.js is an useful plugin that allow you to create an unremovable (by the user) overlay
+                            with Javascript easily.</p>
+                        <p>Prevent stupid behaviours from your users disallowing the use from your app with an overlay.
+                        </p>
+                        <a href="https://github.com/sdkcarlos/holdon.js" class="btn btn-primary"><i
+                                class='fab fa-github me-1'></i>Github repository</a>
+                        <a target="_blank" href="https://github.com/sdkcarlos/holdOn.js/tree/master/src/download"
+                            href="#section-download" class="btn btn-primary scroll-to">
+                            <i class="fa fa-download me-1"></i>Get holdOn.js (latest version)
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section id="section-download">
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Installation</h4>
+                                <p class="card-text">holdOn is a javascript library but the overlay will be handled
+                                    internally by the library, so we will call holdOn.js with a variable.</p>
+                                <pre><code class="lang-html">&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;/&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1.0&quot;/&gt;
+    &lt;title&gt;holdOn.js Demo&lt;/title&gt;
+
+    &lt;!-- Load the css and js file in your document --&gt;
+    &lt;link href=&quot;path-to/holdOn.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;script src=&quot;path-to/holdOn.iife.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;</code></pre>
+                                <p class="card-text">Then a global variable holdOn will be accesible on your document and all the features
+                                    that holdOn have to offer will be available for its use.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-demo">
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Demos</h4>
+                                <p class="card-text">holdOn has a lot of available themes, just provide which theme you
+                                    want as parameter in the object.</p>
+                                <pre><code class="lang-js">holdOn.open({
+     theme:"sk-cube-grid"
+});</code></pre>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <a href="javascript:void(0);" class="btn btn-primary holdOn-trigger"
+                                            data-theme="sk-rect">sk-rect</a>
+                                        <a href="javascript:void(0);" class="btn btn-primary holdon-trigger"
+                                            data-theme="sk-bounce">sk-bounce</a>
+                                        <a href="javascript:void(0);" class="btn btn-primary holdon-trigger"
+                                            data-theme="sk-folding-cube">sk-folding-cube</a>
+                                        <a href="javascript:void(0);" class="btn btn-primary holdon-trigger"
+                                            data-theme="sk-circle">sk-circle</a>
+                                        <a href="javascript:void(0);" class="btn btn-primary holdon-trigger"
+                                            data-theme="sk-dot">sk-dot</a>
+                                        <a href="javascript:void(0);" class="btn btn-primary holdon-trigger"
+                                            data-theme="sk-bounce">sk-bounce</a>
+                                        <a href="javascript:void(0);" class="btn btn-primary holdon-trigger"
+                                            data-theme="sk-falding-circle">sk-falding-circle</a>
+                                        <a href="javascript:void(0);" class="btn btn-primary holdon-trigger"
+                                            data-theme="sk-cube-grid">sk-cube-grid</a>
+                                        <a href="javascript:void(0);" class="btn btn-primary holdon-trigger"
+                                            data-theme="custom">custom</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-open">
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Open overlay</h4>
+                                <p class="card-text">To open an overlay, use the <code>holdOn.open(options)</code>
+                                    method.</p>
+                                <pre><code class="lang-js">var options = {
+     theme:"sk-cube-grid",
+     message:'some cool message for your user here ! Or where the logo is ! Your skills are the only limit.&lt;br&gt; &lt;input type=&quot;button&quot; value=&quot;Close this Cover&quot; onclick=&quot;holdOn.close();',
+     backgroundColor:"#1847B1",
+     textColor:"white"
+};
+
+holdOn.open(options);</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-close">
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Close overlay</h4>
+                                <p class="card-text">To close the active overlay, use the <code>holdOn.close()</code>
+                                    method.</p>
+                                <pre><code class="lang-js">holdOn.close();</code></pre>
+                                <p class="card-text">holdOn.close function, this will close holdOn overlay allowing again the user
+                                    interaction.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        <footer class="row py-5 my-5 border-top">
+            <div class="col-auto mb-3">
+                <p class="text-body-secondary">&copy; Copyright Carlos Delgado</p>
+            </div>
+            <div class="col mb-3">
+                <h5>About holdOn.js</h5>
+                <p>Instead of write more logic for actions in your project, you can simply lock the user interface to
+                    prevent stupid actions from your user while something important happens in the background.</p>
+            </div>
+        </footer>
+
+
+
+    </div>
+
+    <script src="../dist/holdOn.iife.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/prism.min.js"
+        integrity="sha512-HiD3V4nv8fcjtouznjT9TqDNDm1EXngV331YGbfVGeKUoH+OLkRTCMzA34ecjlgSQZpdHZupdSrqHY+Hz3l6uQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            document.querySelectorAll('.holdon-trigger').forEach(trigger => {
+                trigger.addEventListener('click', (event) => {
+
+                    var theme = trigger.dataset.theme;
+                    var message = "Loading important information, please don't do anything stupid. Removing this in 3 seconds";
+
+                    if (theme == 'custom') {
+                        holdOn.open({
+                            theme: 'custom',
+                            // If theme == "custom" , the content option will be available to customize the logo
+                            content: '<div style="text-align: center;"><img style="width:80px;" src="https://www.google.de/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"></div>',
+                            message: ' Some cool message for your user here ! Or where the logo is ! Your skills are the only limit.<br> <input type="button" value="Close this Cover" class="btn btn-primary mt-3" onclick="holdOn.close();">',
+                            backgroundColor: '#1847B1',
+                            textColor: 'white'
+                        });
+                        return;
+                    }
+
+                    holdOn.open({
+                        message: message,
+                        theme: theme
+                    });
+
+                    setTimeout(function () {
+                        holdOn.close();
+                    }, 3000);
+                });
+
+
+            });
+        });
+    </script>
+</body>
+
+</html>
