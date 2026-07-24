@@ -26,13 +26,13 @@
   "license": "MIT",
   "devDependencies": {
     "@typescript/typescript6": "^6.0.2",
-    "autoprefixer": "^10.5.3",
+    "autoprefixer": "^10.5.4",
     "jsdom": "^29.1.1",
-    "postcss": "^8.5.19",
-    "sass": "^1.101.0"
+    "postcss": "^8.5.22",
+    "sass": "^1.101.7"
   },
   "dependencies": {
-    "vite": "^8.1.4",
+    "vite": "^8.1.5",
     "vite-plugin-banner": "^0.8.1",
     "vite-plugin-dts": "^5.0.3",
     "vitest": "^4.1.10"
