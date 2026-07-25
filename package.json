@@ -10,7 +10,7 @@
     "require": "./dist/holdon.umd.cjs"
   },
   "scripts": {
-    "update-deps": "npx npm-check-updates -u",
+    "update-deps": "set npm_config_allow_scripts=&& npm-check -y",
     "test": "vitest",
     "dev": "vite",
     "build": "tsc && vite build"
@@ -28,8 +28,8 @@
     "@typescript/typescript6": "^6.0.2",
     "autoprefixer": "^10.5.4",
     "jsdom": "^29.1.1",
-    "postcss": "^8.5.22",
-    "sass": "^1.101.7"
+    "postcss": "^8.5.23",
+    "sass": "^1.102.0"
   },
   "dependencies": {
     "vite": "^8.1.5",
