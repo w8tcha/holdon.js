@@ -27,8 +27,8 @@
   "devDependencies": {
     "@typescript/typescript6": "^6.0.2",
     "autoprefixer": "^10.5.4",
-    "jsdom": "^29.1.1",
-    "postcss": "^8.5.23",
+    "jsdom": "^30.0.1",
+    "postcss": "^8.5.24",
     "sass": "^1.102.0"
   },
   "dependencies": {
