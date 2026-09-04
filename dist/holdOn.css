@@ -1,5 +1,5 @@
 /**
- * holdOn.js 0.0.1
+ * holdOn.js 1.0.0
  * https://github.com/w8tcha/holdon.js
  * @license MIT
  */
